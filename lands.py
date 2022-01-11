@@ -1,4 +1,7 @@
-
+"""
+Keeps a catalogue of all traits pertaining to different lands. Will be updated to include enemy types and different
+areas to explore.
+"""
 
 forest = {
     "Type": "Forest",
