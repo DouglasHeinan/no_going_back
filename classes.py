@@ -104,10 +104,10 @@ battle_mage = {
     'Defense': 0,
     'Potential_Abilities': [],
     'Abilities': [],
-    'Potential_Spells': ['magic_armor', 'ethereal_shield', 'fireworks', 'warrior_spell', 'flaming_sword', 'fire_ball',
-                         'icy_blast', 'frozen_sword', 'downpour'],
-    'Spells': ['magic_bolt'],
-    'Items': ['healing_potion', 'torch'],
+    'Potential_Spells': ['magic armor', 'ethereal shield', 'fireworks', 'warrior spell', 'flaming sword', 'fire ball',
+                         'icy blast', 'frozen sword', 'downpour'],
+    'Spells': ['magic bolt'],
+    'Items': ['healing potion', 'torch'],
     'Battle-actions': ['attack', 'use_ability', 'use_spell', 'use_item'],
     'Actions': ['search', 'use']
     }
@@ -146,13 +146,13 @@ berserker = {
     'Max_HP': 15,
     'Current_HP': 15,
     'Defense': 0,
-    'Potential_Abilities': ['advanced_berserk', 'mega_rage', 'power_strike', 'charge', 'quick_strikes', 'bash',
-                            'advanced_bash', 'leap_attack', 'trance'],
+    'Potential_Abilities': ['advanced berserk', 'mega rage', 'power strike', 'charge', 'quick strikes', 'bash',
+                            'advanced bash', 'leap attack', 'trance'],
     'Abilities': ['berserk'],
-    'Potential_Spells': ['disarm', 'fire_blade', 'flame_armor'],
+    'Potential_Spells': ['disarm', 'fire blade', 'flame armor'],
     'Spells': ['regeneration'],
-    'Items': ['healing_potion', 'torch'],
-    'Battle-Actions': ['attack', 'use_ability', 'use_spell', 'use_item'],
+    'Items': ['healing potion', 'torch'],
+    'Battle-Actions': ['attack', 'use ability', 'use spell', 'use item'],
     'Actions': ['search', 'use']
 }
 warrior = {

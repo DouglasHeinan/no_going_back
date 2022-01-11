@@ -2,7 +2,11 @@
 
 forest = {
     "Type": "Forest",
-    'Description': 'The Infini-Forest, far to the west, is a really big placeholder'
+    'Description': 'The Infini-Forest, far to the west, is a really big placeholder',
+    "Intro1": "You awaken from your night's slumber in a grove of pines stretching high into the sky.",
+    "Intro2": "Trudging through the ankle-deep snow on the Hiker's path, you see the footprints of goblins leading you" 
+    " toward PlaceHolderCapital.",
+    "Intro3": "You set off in the pre-dawn twilight into the spooky PlaceHolder Forest."
 }
 desert = {
     "Type": "Desert",

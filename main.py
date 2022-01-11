@@ -1,16 +1,33 @@
 from classes import warrior, battle_mage, soldier, berserker
 from lands import lands
+from input import Input, NON_COMBAT_ACTIONS
+import random
 
 
 CLASS_LIST = [warrior]
 SUB_CLASS_LIST = [battle_mage, soldier, berserker]
 
 
+
+
 def main():
     player_class, sub_class = intro()
     location = choose_land()
-    print(f"You are a {player_class['Class']} {sub_class['Class']}, adventuring through the {location['Type']} "
-          f"locations of Gabagoo.")
+    hp = sub_class['Current_HP']
+    start_area = intro_chooser()
+    scenario = location[start_area]
+    # inventory = sub_class["Items"]
+    print(f"You are a {player_class['Class']} {sub_class['Class']} with {hp} hit points, adventuring through the "
+          f"{location['Type']} of PlaceHolderLand.")
+
+    game_over = False
+    combat = False
+    current_area = scenario
+    print(current_area)
+    while not game_over:
+        action = user_input()
+        Input(combat, action, sub_class)
+
 
 
 def intro():
@@ -63,6 +80,23 @@ def choose_land():
     land = int(land)
     land = lands[land - 1]
     return land
+
+
+def intro_chooser():
+    intro_list = ["Intro1", "Intro2", "Intro3"]
+    choice = random.choice(intro_list)
+    return choice
+
+
+def user_input():
+    print("What would you like to do?")
+    for action in NON_COMBAT_ACTIONS:
+        print(action)
+    choice = input("What would you like to do? (Select 1-7) ")
+    while not choice.isdigit() or int(choice) < 0 or int(choice) > 7:
+        print("Please select a valid option.")
+        choice = input("What would you like to do (Select 1-7) ")
+    return choice
 
 
 if __name__ == '__main__':
