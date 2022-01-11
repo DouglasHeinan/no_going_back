@@ -1,4 +1,5 @@
 from classes import warrior, battle_mage, soldier, berserker
+from lands import lands
 
 
 CLASS_LIST = [warrior]
@@ -7,9 +8,9 @@ SUB_CLASS_LIST = [battle_mage, soldier, berserker]
 
 def main():
     player_class, sub_class = intro()
-    # establish character
-    # choose island
-    # proceed through island
+    location = choose_land()
+    print(f"You are a {player_class['Class']} {sub_class['Class']}, adventuring through the {location['Type']} "
+          f"locations of Gabagoo.")
 
 
 def intro():
@@ -30,10 +31,10 @@ def intro():
 def sub_class_selection():
     print("Choose your sub-class:")
     for job in SUB_CLASS_LIST:
-        index = 
-        print(f"{SUB_CLASS_LIST[index] - 1}. {job}")
+        index = SUB_CLASS_LIST.index(job) + 1
+        print(f"{index}. {job['Class']}: {job['Description']}")
     sub_class = input("Which sub_class would you like to play as? (Select the number that corresponds to your preferred"
-                      "class) ")
+                      " class) ")
     sub_class = check_class(sub_class, SUB_CLASS_LIST)
     sub_class = SUB_CLASS_LIST[sub_class - 1]
     return sub_class
@@ -47,6 +48,21 @@ def check_class(player_class, player_class_list):
         player_class = input("Which class would you like to play as? (Select the number that corresponds to your "
                              "preferred class.) ")
     return int(player_class)
+
+
+def choose_land():
+    num = 1
+    print("Where do you feel like adventuring:")
+    for land in lands:
+        print(f"{num}. {land['Type']}")
+        num += 1
+    land = input("Choose a region to journey through: ")
+    while not land.isdigit() or int(land) < 0 or int(land) > 8:
+        print("Please enter a valid response.")
+        land = input("Choose a region to journey through: ")
+    land = int(land)
+    land = lands[land - 1]
+    return land
 
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-'''
+"""
 'Description': ,
 'Strength': ,
 'Agility': ,
@@ -16,7 +16,7 @@
 'Items': [healing_potion, torch],
 'Battle-Actions': [attack, use_ability, use_spell, use_item],
 'Actions': [search, use]
-'''
+"""
 
 
 '''
@@ -111,6 +111,7 @@ battle_mage = {
     'Battle-actions': ['attack', 'use_ability', 'use_spell', 'use_item'],
     'Actions': ['search', 'use']
     }
+
 soldier = {
     'Class': 'Soldier',
     'Description': 'Trained in a variety of combat styles, can use one-handed weapons with a shield or cross-bows',
@@ -133,8 +134,8 @@ soldier = {
 }
 berserker = {
     'Class': 'Berserker',
-    'Description': 'A ruthless killing machine that can go into a violent, trance-like state where abilities are heightened'
-                   'and damage is increased. Uses two-handed melee weapons.',
+    'Description': 'A ruthless killing machine that can go into a violent, trance-like state '
+                   'where abilities are heightened and damage is increased. Uses two-handed melee weapons.',
     'Strength': 3,
     'Agility': 2,
     'Constitution': 3,
@@ -148,7 +149,7 @@ berserker = {
     'Potential_Abilities': ['advanced_berserk', 'mega_rage', 'power_strike', 'charge', 'quick_strikes', 'bash',
                             'advanced_bash', 'leap_attack', 'trance'],
     'Abilities': ['berserk'],
-    'Potential_Spells': ['disarmor', 'fire_blade', 'flame_armor'],
+    'Potential_Spells': ['disarm', 'fire_blade', 'flame_armor'],
     'Spells': ['regeneration'],
     'Items': ['healing_potion', 'torch'],
     'Battle-Actions': ['attack', 'use_ability', 'use_spell', 'use_item'],
@@ -187,8 +188,8 @@ warrior = {
 #     'Actions': [search, use]
 # }
 # illusionist = {
-# 'Description': 'A sneaky wizard who focuses on confusing his opponent and pitting enemies against one another. Carries'
-#                'a wand in main hand.',
+# 'Description': 'A sneaky wizard who focuses on confusing his opponent and pitting enemies against one another.
+# Carries a wand in main hand.',
 # 'Strength': -1,
 # 'Agility': 0,
 # 'Constitution': 0,
