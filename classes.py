@@ -91,7 +91,7 @@ sneaky_pal = {
 battle_mage = {
     'Class': 'Battle Mage',
     'Description': 'Wields a one-handed weapon in one hand and keeps off-hand free to cast spells on said weapon or'
-                   'launch ranged magical attacks.',
+                   ' launch ranged magical attacks.',
     'Strength': 3,
     'Agility': 0,
     'Constitution': 2,
@@ -107,7 +107,7 @@ battle_mage = {
     'Potential_Spells': ['magic armor', 'ethereal shield', 'fireworks', 'warrior spell', 'flaming sword', 'fire ball',
                          'icy blast', 'frozen sword', 'downpour'],
     'Spells': ['magic bolt'],
-    'Items': ['healing potion', 'torch'],
+    'Items': ['healing potion', 'torch', 'torch'],
     'Battle-actions': ['attack', 'use_ability', 'use_spell', 'use_item'],
     'Actions': ['search', 'use']
     }
@@ -130,7 +130,7 @@ soldier = {
     'Abilities': ['power_shot', 'power_strike'],
     'Potential_Spells': [],
     'Spells': [],
-    'Items': ['healing_potion', 'torch'],
+    'Items': ['healing_potion', 'healing_potion', 'torch'],
 }
 berserker = {
     'Class': 'Berserker',
@@ -151,12 +151,12 @@ berserker = {
     'Abilities': ['berserk'],
     'Potential_Spells': ['disarm', 'fire blade', 'flame armor'],
     'Spells': ['regeneration'],
-    'Items': ['healing potion', 'torch'],
+    'Items': ['healing potion', 'torch', 'torch'],
     'Battle-Actions': ['attack', 'use ability', 'use spell', 'use item'],
     'Actions': ['search', 'use']
 }
 warrior = {
-    'name': '',
+    'Name': '',
     'Class': 'Warrior',
     'Sub-classes': [battle_mage, soldier, berserker],
     'Companion-options': [apprentice_wizard, healing_deacon, sneaky_pal]

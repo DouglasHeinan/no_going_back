@@ -1,15 +1,24 @@
 from classes import warrior, battle_mage, soldier, berserker
 from lands import lands
 from items import Items
+import ansicolor
 import random
 
+"""These are constants for the ansicolor package"""
+ESC = '\x1b'
+GREEN = ESC + '[32m'
+RED = ESC + '[31m'
+BLUE = ESC + '[34m'
+YELLOW = ESC + '[33m'
+TERMINATE = ESC + '[0m'
 """
 These constants are used when creating your character or choosing an action during the game
 """
+
 CLASS_LIST = [warrior]
 SUB_CLASS_LIST = [battle_mage, soldier, berserker]
 NON_COMBAT_ACTIONS = ["1.Examine your inventory", "2.Use an item", "3.Use an ability", "4.Search",
-                      "5.Check your status", "6.Travel", "7.Attack"]
+                      "5.Check your status", "6.Travel"]
 
 
 def main():
@@ -18,21 +27,23 @@ def main():
     which sort of land they'd like to begin their journey in. It briefly introduces the character to their situation
     and their character and establishes their starting hp and items.
     """
-    player_class, sub_class = intro()
+    player_class, sub_class, name = intro()
     location = choose_land()
     hp = sub_class['Current_HP']
     start_area = intro_chooser()
     scenario = location[start_area]
     items = Items(sub_class)
-    print(f"You are a {player_class['Class']} {sub_class['Class']} with {hp} hit points, adventuring through the "
-          f"{location['Type']} of PlaceHolderLand.")
+    print(f"You are {GREEN + name + TERMINATE}, a {player_class['Class']} {sub_class['Class']} with {hp} hit points, adventuring "
+          f"through the {location['Type']} of PlaceHolderLand.")
+    print("")
+    print(scenario)
+    print("")
     """
     A few key words are established before the main event runs.
     """
     game_over = False
     combat = False
     current_area = scenario
-    print(current_area)
     """
     For as long as the game isn't over (i.e., the player is not out of HP), the user is continually asked to 
     respond to prompts to move the game along.
@@ -56,9 +67,13 @@ def intro():
                          "preferred class.) ")
     player_class = check_class(player_class, CLASS_LIST)
     player_class = CLASS_LIST[player_class - 1]
+    print("")
+    player_class["Name"] = input("What would you like your character's name to be? ")
+    print("")
     sub_class = sub_class_selection()
     print(f"You've chosen to play as a {player_class['Class']} {sub_class['Class']}")
-    return player_class, sub_class
+    print("")
+    return player_class, sub_class, player_class["Name"]
 
 
 def sub_class_selection():
@@ -69,6 +84,7 @@ def sub_class_selection():
         print(f"{index}. {job['Class']}: {job['Description']}")
     sub_class = input("Which sub_class would you like to play as? (Select the number that corresponds to your preferred"
                       " class) ")
+    print("")
     sub_class = check_class(sub_class, SUB_CLASS_LIST)
     sub_class = SUB_CLASS_LIST[sub_class - 1]
     return sub_class
@@ -95,6 +111,7 @@ def choose_land():
     while not land.isdigit() or int(land) < 0 or int(land) > 8:
         print("Please enter a valid response.")
         land = input("Choose a region to journey through: ")
+    print("")
     land = int(land)
     land = lands[land - 1]
     return land
@@ -112,10 +129,11 @@ def user_input():
     print("What would you like to do?")
     for action in NON_COMBAT_ACTIONS:
         print(action)
-    choice = input("Select 1-7 ")
-    while not choice.isdigit() or int(choice) < 0 or int(choice) > 7:
+    choice = input("Select 1-6 ")
+    print("")
+    while not choice.isdigit() or int(choice) < 0 or int(choice) > 6:
         print("Please select a valid option.")
-        choice = input("What would you like to do (Select 1-7) ")
+        choice = input("What would you like to do (Select 1-6) ")
     return choice
 
 
